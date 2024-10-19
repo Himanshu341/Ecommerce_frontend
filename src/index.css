@@ -85,3 +85,56 @@ body {
 section {
   margin: 20px;
 }
+
+/* Base styles for container */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+.go-to-top-button {
+  position: fixed;
+  bottom: "16px";
+  right: "16px";
+  background-color: #5c73b6;
+  color: #fff;
+}
+
+/* For small devices (up to 576px) */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+/* For medium devices (up to 768px) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* For large devices (up to 992px) */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* For extra-large devices (up to 1200px) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* For extra-extra-large devices (up to 1400px) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}

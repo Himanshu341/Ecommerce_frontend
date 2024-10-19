@@ -3,8 +3,11 @@ import React from "react";
 import "./navbar.css";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
   return (
     <>
       <Box className="container">
@@ -12,8 +15,8 @@ const Navbar = () => {
           <Box className="navbar-logo">Logo</Box>
           <Box className="navbar-menu">
             <ul>
-              <li>Home</li>
-              <li>Product</li>
+              <li onClick={() => navigate('/')}>Home</li>
+              <li onClick={() => navigate('/product-detail')}>Product</li>
               <li>About</li>
               <li>Services</li>
               <li>Contact Us</li>
