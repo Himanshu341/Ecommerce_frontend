@@ -5,6 +5,8 @@ import SignIn from "../pages/auth/SignIn";
 import Layout from "../pages/user/layout/Layout";
 import Home from "../pages/user/home/Home";
 import ProductDetails from "../pages/user/product/ProductDetail";
+import ProductCart from "../pages/user/cart/ShoppingCart";
+import ShoppingCart from "../pages/user/cart/ShoppingCart";
 
 const Router = () => {
   const product = {
@@ -24,6 +26,7 @@ const Router = () => {
           <Route path="/" element={<Layout />}>
             <Route path="" element={<Home />} />
             <Route path="product-detail" element={<ProductDetails product={product} />} />
+            <Route path="shopping-cart" element={<ShoppingCart />} />
           </Route>
         </Routes>
       </BrowserRouter>

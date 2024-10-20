@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -7,9 +7,19 @@ import {
   Grid,
   Button,
   Rating,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  TextField,
+  Divider,
+  IconButton,
 } from "@mui/material";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
+import EditNoteIcon from "@mui/icons-material/EditNote";
+import CloseIcon from "@mui/icons-material/Close";
 
 const reviews = [
   {
@@ -37,16 +47,33 @@ const reviews = [
 ];
 
 const ProductReview = () => {
+  const [open, setOpen] = useState(false); // State to manage the modal visibility
+  const [rating, setRating] = useState(0); // State to manage the star rating
+  const [comment, setComment] = useState(""); // State to manage the comment
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleSubmitReview = () => {
+    // Handle form submission and add the new review
+    console.log("Review submitted", { rating, comment });
+    setOpen(false); // Close the modal after submission
+  };
+
   return (
     <Box
       sx={{
         padding: 3,
         borderRadius: "12px",
         margin: "20px 0",
-        backgroundColor: "transparent", // Making the background transparent
-        // boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-        backdropFilter: "blur(10px)", // Optional: Adds a nice blur effect to the background
-        border: "1px solid lightgray", // Optional: A subtle border for better visibility
+        backgroundColor: "transparent",
+        backdropFilter: "blur(10px)",
+        border: "1px solid lightgray",
       }}
     >
       <Box
@@ -60,10 +87,95 @@ const ProductReview = () => {
         <Typography variant="h4" component="div">
           Average rating
         </Typography>
-        <Button variant="contained" color="primary">
-          Write your review
+        <Button className="add-review-btn" onClick={handleClickOpen}>
+          <EditNoteIcon /> Add review
         </Button>
       </Box>
+
+      {/* Improved Modal for adding a review */}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        maxWidth="sm"
+        fullWidth
+        PaperProps={{
+          sx: {
+            borderRadius: "12px",
+            padding: 2,
+            boxShadow: "0px 6px 20px rgba(0, 0, 0, 0.15)",
+          },
+        }}
+      >
+        <DialogTitle sx={{ m: 0, p: 2, display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+            Add a Review
+          </Typography>
+          <IconButton onClick={handleClose}>
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <Divider />
+        <DialogContent sx={{ py: 2, display: "flex", flexDirection: "column", gap: 2 }}>
+          <DialogContentText>
+            We would love to hear your thoughts! Please provide a rating and share your experience with the product.
+          </DialogContentText>
+          <TextField
+            label="Your Review"
+            placeholder="Write your review here..."
+            fullWidth
+            multiline
+            rows={4}
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            variant="outlined"
+            sx={{ borderRadius: "8px", backgroundColor: "#f9f9f9" }}
+          />
+          <Box>
+            <Typography sx={{ mb: 1, fontWeight: "bold" }}>Rating</Typography>
+            <Rating
+              value={rating}
+              onChange={(event, newValue) => setRating(newValue)}
+              precision={0.5}
+              size="large"
+              sx={{
+                "& .MuiRating-iconFilled": {
+                  color: "#FFD700", // Gold color for stars
+                },
+              }}
+            />
+          </Box>
+        </DialogContent>
+        <DialogActions sx={{ justifyContent: "space-between", p: 2 }}>
+          <Button
+            variant="outlined"
+            onClick={handleClose}
+            sx={{
+              color: "#f44336",
+              borderColor: "#f44336",
+              "&:hover": {
+                backgroundColor: "#f44336",
+                color: "#fff",
+              },
+            }}
+          >
+            Cancel
+          </Button>
+          <Button
+            variant="contained"
+            onClick={handleSubmitReview}
+            sx={{
+              backgroundColor: "#269846",
+              "&:hover": {
+                backgroundColor: "#1e7a3b",
+              },
+            }}
+          >
+            Submit Review
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Rest of your product review content */}
       <Paper
         elevation={0}
         sx={{
@@ -90,22 +202,16 @@ const ProductReview = () => {
           </Grid>
           <Grid item xs={12} sm={6}>
             <Box className="all-rating-stars">
-              {/* Ratings breakdown */}
               {["5 Star", "4 Star", "3 Star", "2 Star", "1 Star"].map(
                 (star, index) => (
-                  <Box
-                    className="rating-progress-bar"
-                    key={index}
-                  >
+                  <Box className="rating-progress-bar" key={index}>
                     <Typography>{star}</Typography>
-                    <Box
-                    className="active-bar"
-                    >
+                    <Box className="active-bar">
                       <Box
                         sx={{
                           width: `${Math.random() * 100}%`,
-                          bgcolor: '#269846',
-                          height: '100%',
+                          bgcolor: "#269846",
+                          height: "100%",
                           borderRadius: 2,
                         }}
                       />
@@ -143,7 +249,9 @@ const ProductReview = () => {
                     sx={{ width: 56, height: 56 }}
                   />
                   <Box sx={{ ml: 2 }}>
-                    <Typography className="username" variant="h6">{review.name}</Typography>
+                    <Typography className="username" variant="h6">
+                      {review.name}
+                    </Typography>
                     <Typography variant="body2" color="textSecondary">
                       {review.date}
                     </Typography>

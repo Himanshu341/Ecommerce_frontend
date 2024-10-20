@@ -1,0 +1,132 @@
+.cart-container {
+  display: flex;
+  margin: 20px;
+  align-items: flex-start;
+  gap: 20px;
+  border-radius: 12px;
+}
+
+.cart-section {
+  width: 70%;
+  padding: 20px;
+  border: 0.5px solid lightgray;
+  border-radius: 12px;
+}
+
+.cart-table thead tr th {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cart-order-summary-section {
+  width: 30%;
+  border-radius: 12px;
+  padding: 20px;
+  border: 0.5px solid lightgray;
+}
+
+.cart-title,
+.cart-order-summary-title {
+  font-weight: 600 !important;
+  margin-bottom: 20px !important;
+}
+
+.cart-product-details {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.cart-product-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+}
+
+.cart-product-image:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.cart-product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-product-name {
+  font-weight: 500;
+}
+
+.cart-product-size {
+  display: inline-block;
+}
+
+.cart-product-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.cart-quantity-input {
+  width: 15px;
+}
+
+.cart-delete-icon {
+  color: #ff5722 !important;
+}
+
+.cart-continue-shopping {
+  margin-top: 20px;
+  text-transform: none;
+  color: #ff5722 !important;
+}
+
+.cart-order-summary-details {
+  margin-bottom: 20px;
+}
+
+.cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #ff5722;
+}
+
+.cart-apply-discount {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* .cart-discount-input {
+  width: 60%;
+} */
+
+.cart-apply-button {
+  width: 35%;
+}
+
+.cart-checkout-button {
+  background-color: #142c90 !important;
+  color: white;
+  width: 100%;
+  padding: 10px 0;
+  text-transform: none;
+  margin: 10px 0px !important;
+}
+
+.cart-plus-icon,
+.cart-minus-icon {
+  width: 20px !important;
+  height: 20px !important;
+}

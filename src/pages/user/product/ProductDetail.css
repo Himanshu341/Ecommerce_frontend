@@ -305,6 +305,11 @@
   font-size: 16px;
 }
 
+.add-review-btn {
+  background-color: #4053a3 !important;
+  color: #fff !important;
+}
+
 .feedback-user-rating .review-like-dislike {
   display: flex;
   align-items: center;

@@ -12,7 +12,7 @@ const Navbar = () => {
     <>
       <Box className="container">
         <Box className="navbar-main">
-          <Box className="navbar-logo">Logo</Box>
+          <Box className="navbar-logo" onClick={() => navigate('/')}>Logo</Box>
           <Box className="navbar-menu">
             <ul>
               <li onClick={() => navigate('/')}>Home</li>
@@ -23,13 +23,13 @@ const Navbar = () => {
             </ul>
           </Box>
           <Box className="navbar-right-content">
-            <IconButton className="navbar-icon">
+            <IconButton className="navbar-icon" onClick={() => navigate('/shopping-cart')}>
               <ShoppingCartIcon />
             </IconButton>
             <IconButton className="navbar-icon">
               <NotificationsIcon />
             </IconButton>
-            <Avatar className="Profile-Btn">P</Avatar>
+            <Avatar className="Profile-Btn" onClick={() => navigate('/login')}>P</Avatar>
           </Box>
         </Box>
       </Box>
