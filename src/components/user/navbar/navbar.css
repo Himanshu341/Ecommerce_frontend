@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+}
+
+.navbar-main {
+  /* background-color: rgba(20, 44, 144); 
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(10px);  */
+
+  background-color: rgba(20, 44, 144, 0.8); /* Dark blue with transparency */
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px); /* For the glassy blur effect */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.navbar-menu ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-menu ul li {
+  list-style-type: none;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.navbar-right-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.navbar-right-content .navbar-icon {
+  color: #fff;
+}
+
+.navbar-right-content .Profile-Btn {
+  color: #000;
+  background: #94b5da55;
+  cursor: pointer;
+}
